@@ -1,46 +1,52 @@
-#include <iostream>
-#include <bits/stdc++.h>
+#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
 int main()
 {
-    // int x,y;
-    // cout<<"how many elements do you want to enter in array a and b respectively=";
-    // cin>>x>>y;
+    int n1,n2,t,s;
+    cout<<"how many elements do you want to enter in 1st and 2nd array respectively=";
+    cin>>n1>>n2;
+    int a[n1],b[n2];
 
-    int a[10];
-    int b[10];
-    int t;
-
-    //input of 1st array
-    cout << "enter the elemants of array a ";
-    for (int i = 0; i < 10; i++)
+//input of 1st array
+    cout<<"enter the "<<n1<<" elements in 1st array=";
+    for (int i = 0; i < n1; i++)
     {
-        cin >> a[i];
+        cin>>a[i];
     }
-    //sorting of 1st array
-    for(int i=0;i<10;i++)
+//sorting of 1st array
+    for (int i = 0; i < n1; i++)
     {
-        for(int j=0;j<10;j++)
+        for (int j = 0; j < n1; j++)
         {
             if(a[i]<a[j])
             {
-                t=a[i];
+                s=a[i];
                 a[i]=a[j];
-                a[j]=t;
+                a[j]=s;
             }
         }
+        
     }
-
-    //input of 2nd array
-    cout << "enter the elements of array b ";
-    for (int i = 0; i < 10; i++)
+//output of 1st sorted array
+    cout<<"first sorted array=";
+    for (int i = 0; i < n1; i++)
     {
-        cin >> b[i];
+        cout<<a[i]<<" ";
     }
-    //sorting of 2nd array
-    for(int i=0;i<10;i++)
+    cout<<endl;
+    
+//input of 2nd array
+    cout<<"enter the "<<n2<<" elements in 2nd array=";
+    for (int i = 0; i < n2; i++)
     {
-        for(int j=0;j<10;j++)
+        cin>>b[i];
+    }
+//sorting of 2nd array
+    for (int i = 0; i < n2; i++)
+    {
+        for (int j = 0; j < n2; j++)
         {
             if(b[i]<b[j])
             {
@@ -50,16 +56,26 @@ int main()
             }
         }
     }
-
-    //output of intersection elements
-    cout<<endl<<"intersection elements";
-    for (int i = 0; i < 10; i++)
+//output of 2nd sorted array
+    cout<<"second sorted array=";
+    for (int i = 0; i < n2; i++)
     {
-        if (a[i] == b[i])
-        {
-            cout << a[i] << endl;
-        }
+        cout<<b[i]<<" ";
     }
-
+    cout<<endl;
+    
+//output of common elements of 1st and 2nd array
+    cout<<"common elements are=";
+    for (int i = 0; i < n1; i++)
+    {
+        for (int j = 0; j < n2; j++)
+        {
+            if(a[i]==b[j])
+            {
+                cout<<a[i]<<" ";
+            }
+        }  
+    }
+    
     return 0;
 }
