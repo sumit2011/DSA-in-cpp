@@ -105,7 +105,7 @@ void postorder(node* root)
 
 
 void buildFromLevelOrder(node* &root){
-    queue<node*> q;1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1
+    queue<node*> q;
     cout<<"enter data for root"<<endl;
     int data;
     cin>>data;
