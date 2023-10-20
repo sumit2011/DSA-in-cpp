@@ -37,6 +37,8 @@ class Solution{
             return false;
         }
     }
+    
+//another way with time complexicity: O(n)
 
     pair<bool, int> isBalancedFast(Node* root){
         if(root == NULL){

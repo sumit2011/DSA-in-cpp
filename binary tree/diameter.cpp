@@ -22,14 +22,30 @@ class Solution{
     }
 
     public:
-    // function to return the diameter of a binary tree
-    
+
+    // time complexicity: O(n^2 )
+    int diameter(Node* root){
+        if(root == NULL){
+            return 0;
+        }
+        int op1 = diameter(root->left);
+        int op2 = diameter(root->right);
+        int op3 = height(root->left) + height(root->right) + 1;
+
+        int ans = max(op1, max(op2, op3));
+        return ans;
+    }
+
+
+// function to return the diameter of a binary tree
+// time complexicity: O(n)
+
     pair<int,int> diameterFast(Node* root){
         if(root == NULL) {
-            pair<int,int> p = make_par(0,0);
+            pair<int,int> p = make_pair(0,0);
             return p;
         }
-
+        
         pair<int,int> left = diameterFast(root->left);
         pair<int,int> right = diameterFast(root->right);
 
@@ -43,23 +59,10 @@ class Solution{
         
         return ans;
     }
-    // time complexicity: O(n)
 
     int diameter(Node* root){
         return diameterFast(root).first;
     }
 
-    int diameter(Node* root){
-        if(root == NULL){
-            return 0;
-        }
-        int op1 = diameter(root->left);
-        int op2 = diameter(root->right);
-        int op3 = height(root->left) + height(root->right) + 1;
-
-        int ans = max(op1, max(op2, op3));
-        return ans;
-    }
-    // time complexicity: O(n^2 )
 };
 

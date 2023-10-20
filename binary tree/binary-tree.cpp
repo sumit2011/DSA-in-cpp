@@ -139,14 +139,15 @@ int main() {
 
     node* root = NULL;
 
-    buildFromLevelOrder(root);
-    levelOrderTraversal(root);
+    // buildFromLevelOrder(root);
+    // levelOrderTraversal(root);
 
-// 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1
+//input data set:  1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1
 
     root = buildTree(root);
     cout<<"the given tree is:"<<endl; 
-// 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+    
+//input data set:  1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
     levelOrderTraversal(root);
 
 
