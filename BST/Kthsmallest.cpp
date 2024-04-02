@@ -53,20 +53,64 @@ void takeinput(Node *&root)
 }
 
 // function to find kth smallest
-void solve(Node *root, int k, int &count)
+int solve(Node *root, int k, int &count)
 {
     if (root == NULL)
     {
-        return - 1;
+        return -1;
     }
-    solve(root->left, k, count);
+    int left = solve(root->left, k, count);
+    if(left != -1){
+        return left;
+    }
+    cout<<root->data << endl;
     count++;
     if (count == k)
     {
-        cout << k << "th smallest no is: " << root->data;
+        // cout << k << "th smallest no is: " << root->data << endl;
+        return root->data;
     }
-    solve(root->right, k, count);
+    return solve(root->right, k, count);
 }
+// output->
+    // enter data to create bst 
+    // 50 20 70 10 30 90 110 -1
+
+    // 10
+    // 20
+    // 30
+    // kth smallest no is: 30
+
+
+// function to find kth smallest
+// void solve(Node *root, int k, int &count)
+// {
+//     if (root == NULL)
+//     {
+//         return ;
+//     }
+//     solve(root->left, k, count);
+//     cout<<root->data << endl;
+//     count++;
+//     if (count == k)
+//     {
+//         cout << k << "th smallest no is: " << root->data << endl;
+//     }
+//     solve(root->right, k, count);
+// }
+
+// output->
+    // enter data to create bst 
+    // 50 20 70 10 30 90 110 -1
+
+    // 10
+    // 20
+    // 30
+    // 3th smallest no is: 30
+    // 50
+    // 70
+    // 90
+    // 110
 
 int main()
 {
@@ -75,7 +119,8 @@ int main()
     takeinput(root);
     cout << endl;
     int count = 0;
-    solve(root, 6, count);
+    int ans = solve(root, 3, count);
+    cout << "kth smallest no is: " << ans <<endl;
 
     return 0;
 }

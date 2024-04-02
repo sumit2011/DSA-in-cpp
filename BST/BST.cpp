@@ -171,7 +171,7 @@ int main(){
 
 //     cout<<"minvalue: "<<minval(root)->data<<endl;
 //     cout<<"maxvalue: "<<maxval(root)->data<<endl;
-// // deletion
+// deletion
 //     root = deleteFromBST(root,30);
 
 //     cout<< "printing bst"<<endl;
@@ -187,3 +187,29 @@ int main(){
 
 // Hw inorder predecessor
 //    inorder succesor
+
+
+// inorder to BST
+
+Node* inorderToBst(int s, int e, vector<int> &in){
+    if(s>e){
+        return NULL;
+    }
+    int mid = (s+e)/2;
+    Node* root = new Node(in[mid]);
+    root->left = inorderToBst(s,mid -1, in);
+    root->right = inorderToBst(mid+1, e, in);
+    return root;
+}
+
+// bst to inorder array
+// sorted
+    void inorder(Node* root , vector<int> &in){
+        if(root == NULL){
+            return;
+        }
+        
+        inorder(root->left, in);
+        in.push_back(root->data);
+        inorder(root->right, in);
+    }
