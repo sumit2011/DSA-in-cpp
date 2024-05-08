@@ -162,3 +162,24 @@ int main() {
     return 0;
 
 }
+
+
+// to find the distance of a given node from the root
+    int dist (Node* root , int num){
+        if(root == NULL){
+            return 0;
+        }
+        if(root ->data == num){
+            return 1;
+        }
+        int left = dist(root->left , num);
+        int right = dist(root->right , num);
+        if(left){
+            int ans = left + 1;
+            return ans;
+        }
+        if(right){
+            int ans = right + 1;
+            return ans;
+        }
+    }

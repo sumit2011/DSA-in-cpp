@@ -8,8 +8,8 @@ public:
     Node* left;
     Node* right;
 
-    Node(int d){
-        this->data= d;
+    Node(int val){
+        this->data= val;
         this->left = NULL;
         this->right = NULL;
     }
@@ -213,3 +213,28 @@ Node* inorderToBst(int s, int e, vector<int> &in){
         in.push_back(root->data);
         inorder(root->right, in);
     }
+
+
+// check given node is present or not in the bst
+bool isPresent(Node* root , int target){
+        if(root == NULL){
+            return false;
+        }
+        
+        if(target == root->data)
+        return true;
+       
+        bool left = isPresent(root->left , target);
+        bool right = isPresent(root->right, target);
+        
+        if(target < root->data ){
+             return left;
+        }
+        if(target > root->data ){
+                return right;
+        }
+        if(left || right){
+            return true;
+        }
+        
+    } 
